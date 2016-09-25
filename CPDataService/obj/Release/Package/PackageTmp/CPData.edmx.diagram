@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="66faa2274eda4cbe84ab1f062fb1db85" Name="Diagram1">
+        <EntityTypeShape EntityType="CPModel.ItemCategory" Width="1.5" PointX="0.75" PointY="13.625" />
+        <EntityTypeShape EntityType="CPModel.ItemCondition" Width="1.5" PointX="0.75" PointY="6" />
+        <EntityTypeShape EntityType="CPModel.ItemImage" Width="1.5" PointX="5.25" PointY="13.875" />
+        <EntityTypeShape EntityType="CPModel.ItemOffer" Width="1.5" PointX="8.25" PointY="9.875" />
+        <EntityTypeShape EntityType="CPModel.ItemsForSell" Width="1.5" PointX="3" PointY="8" />
+        <EntityTypeShape EntityType="CPModel.ItemUserBuying" Width="1.5" PointX="8.25" PointY="13.125" />
+        <EntityTypeShape EntityType="CPModel.ItemUserWatching" Width="1.5" PointX="5.25" PointY="6.125" />
+        <EntityTypeShape EntityType="CPModel.UserDetail" Width="1.5" PointX="6" PointY="9.125" />
+        <EntityTypeShape EntityType="CPModel.UserFavItem" Width="1.5" PointX="8.25" PointY="7.125" />
+        <EntityTypeShape EntityType="CPModel.User" Width="1.5" PointX="0.75" PointY="9.5" />
+        <EntityTypeShape EntityType="CPModel.UserType" Width="1.5" PointX="3.75" PointY="3.375" />
+        <AssociationConnector Association="CPModel.FK_ItemsForSell_ItemCategory" />
+        <AssociationConnector Association="CPModel.FK_ItemsForSell_ItemCondition" />
+        <AssociationConnector Association="CPModel.FK_ItemImage_ItemsForSell" />
+        <AssociationConnector Association="CPModel.FK_ItemOffer_ItemsForSell" />
+        <AssociationConnector Association="CPModel.FK_ItemOffer_Users" />
+        <AssociationConnector Association="CPModel.FK_ItemsForSell_Users" />
+        <AssociationConnector Association="CPModel.FK_ItemUserBuying_ItemsForSell" />
+        <AssociationConnector Association="CPModel.FK_ItemUserWatching_ItemsForSell" />
+        <AssociationConnector Association="CPModel.FK_UserFavItems_ItemsForSell" />
+        <AssociationConnector Association="CPModel.FK_ItemUserBuying_Users" />
+        <AssociationConnector Association="CPModel.FK_ItemUserWatching_Users" />
+        <AssociationConnector Association="CPModel.FK_UserDetails_Users1" />
+        <AssociationConnector Association="CPModel.FK_UserDetails_UserType" />
+        <AssociationConnector Association="CPModel.FK_UserFavItems_Users" />
+        <EntityTypeShape EntityType="CPModel.Message" Width="1.5" PointX="10.5" PointY="9.5" />
+        <AssociationConnector Association="CPModel.FK_Messages_ItemOffer" />
+        <AssociationConnector Association="CPModel.FK_Messages_ItemsForSell" />
+        <AssociationConnector Association="CPModel.FK_Messages_UsersFrom" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

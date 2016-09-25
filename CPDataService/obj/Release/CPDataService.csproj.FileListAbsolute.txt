@@ -1,0 +1,12 @@
+C:\Users\mparab\Documents\Visual Studio 2013\Projects\CPDataService\CPDataService\bin\CPDataService.dll.config
+C:\Users\mparab\Documents\Visual Studio 2013\Projects\CPDataService\CPDataService\bin\CPDataService.dll
+C:\Users\mparab\Documents\Visual Studio 2013\Projects\CPDataService\CPDataService\bin\CPDataService.pdb
+C:\Users\mparab\Documents\Visual Studio 2013\Projects\CPDataService\CPDataService\bin\EntityFramework.dll
+C:\Users\mparab\Documents\Visual Studio 2013\Projects\CPDataService\CPDataService\bin\EntityFramework.SqlServer.dll
+C:\Users\mparab\Documents\Visual Studio 2013\Projects\CPDataService\CPDataService\bin\EntityFramework.xml
+C:\Users\mparab\Documents\Visual Studio 2013\Projects\CPDataService\CPDataService\bin\EntityFramework.SqlServer.xml
+C:\Users\mparab\Documents\Visual Studio 2013\Projects\CPDataService\CPDataService\obj\Release\CPDataService.csprojResolveAssemblyReference.cache
+C:\Users\mparab\Documents\Visual Studio 2013\Projects\CPDataService\CPDataService\obj\Release\CPDataService.dll
+C:\Users\mparab\Documents\Visual Studio 2013\Projects\CPDataService\CPDataService\obj\Release\CPDataService.pdb
+C:\Users\mparab\Documents\Visual Studio 2013\Projects\CPDataService\CPDataService\bin\Newtonsoft.Json.dll
+C:\Users\mparab\Documents\Visual Studio 2013\Projects\CPDataService\CPDataService\bin\Newtonsoft.Json.xml

@@ -1,0 +1,428 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CPModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ItemCategory">
+    <Key>
+      <PropertyRef Name="ItemCatId" />
+    </Key>
+    <Property Name="ItemCatId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ItemCondition">
+    <Key>
+      <PropertyRef Name="ItemConditionId" />
+    </Key>
+    <Property Name="ItemConditionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="varchar(max)" />
+    <Property Name="ConditionName" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ItemImage">
+    <Key>
+      <PropertyRef Name="ItemImageId" />
+    </Key>
+    <Property Name="ItemImageId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ImagePath" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="ItemId" Type="bigint" Nullable="false" />
+    <Property Name="ImageOrder" Type="int" />
+  </EntityType>
+  <EntityType Name="ItemOffer">
+    <Key>
+      <PropertyRef Name="ItemOfferId" />
+    </Key>
+    <Property Name="ItemOfferId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ItemId" Type="bigint" Nullable="false" />
+    <Property Name="UserId" Type="bigint" Nullable="false" />
+    <Property Name="Amount" Type="float" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ItemsForSell">
+    <Key>
+      <PropertyRef Name="ItemId" />
+    </Key>
+    <Property Name="ItemId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="bigint" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="ItemCatId" Type="int" Nullable="false" />
+    <Property Name="Cost" Type="float" Nullable="false" />
+    <Property Name="AvailableQuantity" Type="int" />
+    <Property Name="IsNegotialble" Type="bit" Nullable="false" />
+    <Property Name="DatePosted" Type="datetime" Nullable="false" />
+    <Property Name="LocationLat" Type="float" />
+    <Property Name="LocationLong" Type="float" />
+    <Property Name="DeliveryType" Type="bit" Nullable="false" />
+    <Property Name="IsSold" Type="bit" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+    <Property Name="ItemCondition" Type="int" Nullable="false" />
+    <Property Name="PostalCode" Type="varchar" MaxLength="50" />
+    <Property Name="PostalCodeLocation" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="ItemUserBuying">
+    <Key>
+      <PropertyRef Name="ItemBuyingId" />
+    </Key>
+    <Property Name="ItemBuyingId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ItemId" Type="bigint" Nullable="false" />
+    <Property Name="UserId" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ItemUserWatching">
+    <Key>
+      <PropertyRef Name="ItemWatchingId" />
+    </Key>
+    <Property Name="ItemWatchingId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ItemId" Type="bigint" Nullable="false" />
+    <Property Name="UserId" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Messages">
+    <Key>
+      <PropertyRef Name="MessgeId" />
+    </Key>
+    <Property Name="MessgeId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserIdFrom" Type="bigint" Nullable="false" />
+    <Property Name="UserIdTo" Type="bigint" Nullable="false" />
+    <Property Name="Messge" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SendDate" Type="datetime" Nullable="false" />
+    <Property Name="IsRead" Type="bit" Nullable="false" />
+    <Property Name="IsFlagged" Type="bit" Nullable="false" />
+    <Property Name="ItemId" Type="bigint" Nullable="false" />
+    <Property Name="ItemOfferId" Type="bigint" />
+  </EntityType>
+  <EntityType Name="UserDetails">
+    <Key>
+      <PropertyRef Name="UserDetailsId" />
+    </Key>
+    <Property Name="UserDetailsId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DisplayName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="PhoneNo" Type="varchar" MaxLength="50" />
+    <Property Name="LocationLat" Type="decimal" Precision="9" Scale="6" />
+    <Property Name="LocationLong" Type="decimal" Precision="9" Scale="6" />
+    <Property Name="LocationName" Type="varchar" MaxLength="100" />
+    <Property Name="PostalCode" Type="varchar" MaxLength="20" />
+    <Property Name="Country" Type="varchar" MaxLength="50" />
+    <Property Name="Rating" Type="int" />
+    <Property Name="JoinedDate" Type="datetime" Nullable="false" />
+    <Property Name="UserType" Type="int" Nullable="false" />
+    <Property Name="UserId" Type="bigint" Nullable="false" />
+    <Property Name="ProfileImagePath" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="UserFavItems">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ItemId" Type="bigint" Nullable="false" />
+    <Property Name="UserId" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+    <Property Name="PhoneNumber" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="UserType">
+    <Key>
+      <PropertyRef Name="UserTypeId" />
+    </Key>
+    <Property Name="UserTypeId" Type="int" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_ItemImage_ItemsForSell">
+    <End Role="ItemsForSell" Type="Self.ItemsForSell" Multiplicity="1" />
+    <End Role="ItemImage" Type="Self.ItemImage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ItemsForSell">
+        <PropertyRef Name="ItemId" />
+      </Principal>
+      <Dependent Role="ItemImage">
+        <PropertyRef Name="ItemId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ItemOffer_ItemsForSell">
+    <End Role="ItemsForSell" Type="Self.ItemsForSell" Multiplicity="1" />
+    <End Role="ItemOffer" Type="Self.ItemOffer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ItemsForSell">
+        <PropertyRef Name="ItemId" />
+      </Principal>
+      <Dependent Role="ItemOffer">
+        <PropertyRef Name="ItemId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ItemOffer_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="ItemOffer" Type="Self.ItemOffer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="ItemOffer">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ItemsForSell_ItemCategory">
+    <End Role="ItemCategory" Type="Self.ItemCategory" Multiplicity="1" />
+    <End Role="ItemsForSell" Type="Self.ItemsForSell" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ItemCategory">
+        <PropertyRef Name="ItemCatId" />
+      </Principal>
+      <Dependent Role="ItemsForSell">
+        <PropertyRef Name="ItemCatId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ItemsForSell_ItemCondition">
+    <End Role="ItemCondition" Type="Self.ItemCondition" Multiplicity="1" />
+    <End Role="ItemsForSell" Type="Self.ItemsForSell" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ItemCondition">
+        <PropertyRef Name="ItemConditionId" />
+      </Principal>
+      <Dependent Role="ItemsForSell">
+        <PropertyRef Name="ItemCondition" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ItemsForSell_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="ItemsForSell" Type="Self.ItemsForSell" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="ItemsForSell">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ItemUserBuying_ItemsForSell">
+    <End Role="ItemsForSell" Type="Self.ItemsForSell" Multiplicity="1" />
+    <End Role="ItemUserBuying" Type="Self.ItemUserBuying" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ItemsForSell">
+        <PropertyRef Name="ItemId" />
+      </Principal>
+      <Dependent Role="ItemUserBuying">
+        <PropertyRef Name="ItemId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ItemUserBuying_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="ItemUserBuying" Type="Self.ItemUserBuying" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="ItemUserBuying">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ItemUserWatching_ItemsForSell">
+    <End Role="ItemsForSell" Type="Self.ItemsForSell" Multiplicity="1" />
+    <End Role="ItemUserWatching" Type="Self.ItemUserWatching" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ItemsForSell">
+        <PropertyRef Name="ItemId" />
+      </Principal>
+      <Dependent Role="ItemUserWatching">
+        <PropertyRef Name="ItemId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ItemUserWatching_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="ItemUserWatching" Type="Self.ItemUserWatching" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="ItemUserWatching">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Messages_ItemOffer">
+    <End Role="ItemOffer" Type="Self.ItemOffer" Multiplicity="0..1" />
+    <End Role="Messages" Type="Self.Messages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ItemOffer">
+        <PropertyRef Name="ItemOfferId" />
+      </Principal>
+      <Dependent Role="Messages">
+        <PropertyRef Name="ItemOfferId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Messages_ItemsForSell">
+    <End Role="ItemsForSell" Type="Self.ItemsForSell" Multiplicity="1" />
+    <End Role="Messages" Type="Self.Messages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ItemsForSell">
+        <PropertyRef Name="ItemId" />
+      </Principal>
+      <Dependent Role="Messages">
+        <PropertyRef Name="ItemId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Messages_UsersFrom">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="Messages" Type="Self.Messages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Messages">
+        <PropertyRef Name="UserIdFrom" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserDetails_Users1">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="UserDetails" Type="Self.UserDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="UserDetails">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserDetails_UserType">
+    <End Role="UserType" Type="Self.UserType" Multiplicity="1" />
+    <End Role="UserDetails" Type="Self.UserDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserType">
+        <PropertyRef Name="UserTypeId" />
+      </Principal>
+      <Dependent Role="UserDetails">
+        <PropertyRef Name="UserType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserFavItems_ItemsForSell">
+    <End Role="ItemsForSell" Type="Self.ItemsForSell" Multiplicity="1" />
+    <End Role="UserFavItems" Type="Self.UserFavItems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ItemsForSell">
+        <PropertyRef Name="ItemId" />
+      </Principal>
+      <Dependent Role="UserFavItems">
+        <PropertyRef Name="ItemId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserFavItems_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="UserFavItems" Type="Self.UserFavItems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="UserFavItems">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="GetfilteredItem" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="lat" Type="float" Mode="In" />
+    <Parameter Name="lng" Type="float" Mode="In" />
+    <Parameter Name="distance" Type="int" Mode="In" />
+    <Parameter Name="cat" Type="int" Mode="In" />
+    <Parameter Name="currentuserId" Type="bigint" Mode="In" />
+    <Parameter Name="searchString" Type="varchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="CPModelStoreContainer">
+    <EntitySet Name="ItemCategory" EntityType="Self.ItemCategory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ItemCondition" EntityType="Self.ItemCondition" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ItemImage" EntityType="Self.ItemImage" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ItemOffer" EntityType="Self.ItemOffer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ItemsForSell" EntityType="Self.ItemsForSell" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ItemUserBuying" EntityType="Self.ItemUserBuying" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ItemUserWatching" EntityType="Self.ItemUserWatching" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Messages" EntityType="Self.Messages" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserDetails" EntityType="Self.UserDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserFavItems" EntityType="Self.UserFavItems" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserType" EntityType="Self.UserType" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_ItemImage_ItemsForSell" Association="Self.FK_ItemImage_ItemsForSell">
+      <End Role="ItemsForSell" EntitySet="ItemsForSell" />
+      <End Role="ItemImage" EntitySet="ItemImage" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ItemOffer_ItemsForSell" Association="Self.FK_ItemOffer_ItemsForSell">
+      <End Role="ItemsForSell" EntitySet="ItemsForSell" />
+      <End Role="ItemOffer" EntitySet="ItemOffer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ItemOffer_Users" Association="Self.FK_ItemOffer_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="ItemOffer" EntitySet="ItemOffer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ItemsForSell_ItemCategory" Association="Self.FK_ItemsForSell_ItemCategory">
+      <End Role="ItemCategory" EntitySet="ItemCategory" />
+      <End Role="ItemsForSell" EntitySet="ItemsForSell" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ItemsForSell_ItemCondition" Association="Self.FK_ItemsForSell_ItemCondition">
+      <End Role="ItemCondition" EntitySet="ItemCondition" />
+      <End Role="ItemsForSell" EntitySet="ItemsForSell" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ItemsForSell_Users" Association="Self.FK_ItemsForSell_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="ItemsForSell" EntitySet="ItemsForSell" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ItemUserBuying_ItemsForSell" Association="Self.FK_ItemUserBuying_ItemsForSell">
+      <End Role="ItemsForSell" EntitySet="ItemsForSell" />
+      <End Role="ItemUserBuying" EntitySet="ItemUserBuying" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ItemUserBuying_Users" Association="Self.FK_ItemUserBuying_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="ItemUserBuying" EntitySet="ItemUserBuying" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ItemUserWatching_ItemsForSell" Association="Self.FK_ItemUserWatching_ItemsForSell">
+      <End Role="ItemsForSell" EntitySet="ItemsForSell" />
+      <End Role="ItemUserWatching" EntitySet="ItemUserWatching" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ItemUserWatching_Users" Association="Self.FK_ItemUserWatching_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="ItemUserWatching" EntitySet="ItemUserWatching" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Messages_ItemOffer" Association="Self.FK_Messages_ItemOffer">
+      <End Role="ItemOffer" EntitySet="ItemOffer" />
+      <End Role="Messages" EntitySet="Messages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Messages_ItemsForSell" Association="Self.FK_Messages_ItemsForSell">
+      <End Role="ItemsForSell" EntitySet="ItemsForSell" />
+      <End Role="Messages" EntitySet="Messages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Messages_UsersFrom" Association="Self.FK_Messages_UsersFrom">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Messages" EntitySet="Messages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserDetails_Users1" Association="Self.FK_UserDetails_Users1">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="UserDetails" EntitySet="UserDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserDetails_UserType" Association="Self.FK_UserDetails_UserType">
+      <End Role="UserType" EntitySet="UserType" />
+      <End Role="UserDetails" EntitySet="UserDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserFavItems_ItemsForSell" Association="Self.FK_UserFavItems_ItemsForSell">
+      <End Role="ItemsForSell" EntitySet="ItemsForSell" />
+      <End Role="UserFavItems" EntitySet="UserFavItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserFavItems_Users" Association="Self.FK_UserFavItems_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="UserFavItems" EntitySet="UserFavItems" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

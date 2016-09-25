@@ -1,0 +1,465 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CPModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="CPEntities" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="GetfilteredItem" ReturnType="Collection(CPModel.GetfilteredItem_Result)">
+      <Parameter Name="lat" Mode="In" Type="Double" />
+      <Parameter Name="lng" Mode="In" Type="Double" />
+      <Parameter Name="distance" Mode="In" Type="Int32" />
+      <Parameter Name="cat" Mode="In" Type="Int32" />
+      <Parameter Name="currentuserId" Mode="In" Type="Int64" />
+      <Parameter Name="searchString" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="ItemCategories" EntityType="CPModel.ItemCategory" />
+    <EntitySet Name="ItemConditions" EntityType="CPModel.ItemCondition" />
+    <EntitySet Name="ItemImages" EntityType="CPModel.ItemImage" />
+    <EntitySet Name="ItemOffers" EntityType="CPModel.ItemOffer" />
+    <EntitySet Name="ItemsForSells" EntityType="CPModel.ItemsForSell" />
+    <EntitySet Name="ItemUserBuyings" EntityType="CPModel.ItemUserBuying" />
+    <EntitySet Name="ItemUserWatchings" EntityType="CPModel.ItemUserWatching" />
+    <EntitySet Name="UserDetails" EntityType="CPModel.UserDetail" />
+    <EntitySet Name="UserFavItems" EntityType="CPModel.UserFavItem" />
+    <EntitySet Name="Users" EntityType="CPModel.User" />
+    <EntitySet Name="UserTypes" EntityType="CPModel.UserType" />
+    <AssociationSet Name="FK_ItemsForSell_ItemCategory" Association="CPModel.FK_ItemsForSell_ItemCategory">
+      <End Role="ItemCategory" EntitySet="ItemCategories" />
+      <End Role="ItemsForSell" EntitySet="ItemsForSells" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ItemsForSell_ItemCondition" Association="CPModel.FK_ItemsForSell_ItemCondition">
+      <End Role="ItemCondition" EntitySet="ItemConditions" />
+      <End Role="ItemsForSell" EntitySet="ItemsForSells" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ItemImage_ItemsForSell" Association="CPModel.FK_ItemImage_ItemsForSell">
+      <End Role="ItemsForSell" EntitySet="ItemsForSells" />
+      <End Role="ItemImage" EntitySet="ItemImages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ItemOffer_ItemsForSell" Association="CPModel.FK_ItemOffer_ItemsForSell">
+      <End Role="ItemsForSell" EntitySet="ItemsForSells" />
+      <End Role="ItemOffer" EntitySet="ItemOffers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ItemOffer_Users" Association="CPModel.FK_ItemOffer_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="ItemOffer" EntitySet="ItemOffers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ItemsForSell_Users" Association="CPModel.FK_ItemsForSell_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="ItemsForSell" EntitySet="ItemsForSells" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ItemUserBuying_ItemsForSell" Association="CPModel.FK_ItemUserBuying_ItemsForSell">
+      <End Role="ItemsForSell" EntitySet="ItemsForSells" />
+      <End Role="ItemUserBuying" EntitySet="ItemUserBuyings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ItemUserWatching_ItemsForSell" Association="CPModel.FK_ItemUserWatching_ItemsForSell">
+      <End Role="ItemsForSell" EntitySet="ItemsForSells" />
+      <End Role="ItemUserWatching" EntitySet="ItemUserWatchings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserFavItems_ItemsForSell" Association="CPModel.FK_UserFavItems_ItemsForSell">
+      <End Role="ItemsForSell" EntitySet="ItemsForSells" />
+      <End Role="UserFavItem" EntitySet="UserFavItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ItemUserBuying_Users" Association="CPModel.FK_ItemUserBuying_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="ItemUserBuying" EntitySet="ItemUserBuyings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ItemUserWatching_Users" Association="CPModel.FK_ItemUserWatching_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="ItemUserWatching" EntitySet="ItemUserWatchings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserDetails_Users1" Association="CPModel.FK_UserDetails_Users1">
+      <End Role="User" EntitySet="Users" />
+      <End Role="UserDetail" EntitySet="UserDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserDetails_UserType" Association="CPModel.FK_UserDetails_UserType">
+      <End Role="UserType" EntitySet="UserTypes" />
+      <End Role="UserDetail" EntitySet="UserDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserFavItems_Users" Association="CPModel.FK_UserFavItems_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="UserFavItem" EntitySet="UserFavItems" />
+    </AssociationSet>
+    <EntitySet Name="Messages" EntityType="CPModel.Message" />
+    <AssociationSet Name="FK_Messages_ItemOffer" Association="CPModel.FK_Messages_ItemOffer">
+      <End Role="ItemOffer" EntitySet="ItemOffers" />
+      <End Role="Message" EntitySet="Messages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Messages_ItemsForSell" Association="CPModel.FK_Messages_ItemsForSell">
+      <End Role="ItemsForSell" EntitySet="ItemsForSells" />
+      <End Role="Message" EntitySet="Messages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Messages_UsersFrom" Association="CPModel.FK_Messages_UsersFrom">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Message" EntitySet="Messages" />
+    </AssociationSet>
+  </EntityContainer>
+  <ComplexType Name="GetfilteredItem_Result">
+    <Property Type="Int64" Name="ItemId" Nullable="false" />
+  </ComplexType>
+  <EntityType Name="ItemCategory">
+    <Key>
+      <PropertyRef Name="ItemCatId" />
+    </Key>
+    <Property Name="ItemCatId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="ItemsForSells" Relationship="CPModel.FK_ItemsForSell_ItemCategory" FromRole="ItemCategory" ToRole="ItemsForSell" />
+  </EntityType>
+  <EntityType Name="ItemCondition">
+    <Key>
+      <PropertyRef Name="ItemConditionId" />
+    </Key>
+    <Property Name="ItemConditionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ConditionName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="ItemsForSells" Relationship="CPModel.FK_ItemsForSell_ItemCondition" FromRole="ItemCondition" ToRole="ItemsForSell" />
+  </EntityType>
+  <EntityType Name="ItemImage">
+    <Key>
+      <PropertyRef Name="ItemImageId" />
+    </Key>
+    <Property Name="ItemImageId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ImagePath" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ItemId" Type="Int64" Nullable="false" />
+    <Property Name="ImageOrder" Type="Int32" />
+    <NavigationProperty Name="ItemsForSell" Relationship="CPModel.FK_ItemImage_ItemsForSell" FromRole="ItemImage" ToRole="ItemsForSell" />
+  </EntityType>
+  <EntityType Name="ItemOffer">
+    <Key>
+      <PropertyRef Name="ItemOfferId" />
+    </Key>
+    <Property Name="ItemOfferId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ItemId" Type="Int64" Nullable="false" />
+    <Property Name="UserId" Type="Int64" Nullable="false" />
+    <Property Name="Amount" Type="Double" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="ItemsForSell" Relationship="CPModel.FK_ItemOffer_ItemsForSell" FromRole="ItemOffer" ToRole="ItemsForSell" />
+    <NavigationProperty Name="User" Relationship="CPModel.FK_ItemOffer_Users" FromRole="ItemOffer" ToRole="User" />
+    <NavigationProperty Name="Messages" Relationship="CPModel.FK_Messages_ItemOffer" FromRole="ItemOffer" ToRole="Message" />
+  </EntityType>
+  <EntityType Name="ItemsForSell">
+    <Key>
+      <PropertyRef Name="ItemId" />
+    </Key>
+    <Property Name="ItemId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int64" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="ItemCatId" Type="Int32" Nullable="false" />
+    <Property Name="Cost" Type="Double" Nullable="false" />
+    <Property Name="AvailableQuantity" Type="Int32" />
+    <Property Name="IsNegotialble" Type="Boolean" Nullable="false" />
+    <Property Name="DatePosted" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LocationLat" Type="Double" />
+    <Property Name="LocationLong" Type="Double" />
+    <Property Name="DeliveryType" Type="Boolean" Nullable="false" />
+    <Property Name="IsSold" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ItemCondition" Type="Int32" Nullable="false" />
+    <Property Name="PostalCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PostalCodeLocation" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="ItemCategory" Relationship="CPModel.FK_ItemsForSell_ItemCategory" FromRole="ItemsForSell" ToRole="ItemCategory" />
+    <NavigationProperty Name="ItemCondition1" Relationship="CPModel.FK_ItemsForSell_ItemCondition" FromRole="ItemsForSell" ToRole="ItemCondition" />
+    <NavigationProperty Name="ItemImages" Relationship="CPModel.FK_ItemImage_ItemsForSell" FromRole="ItemsForSell" ToRole="ItemImage" />
+    <NavigationProperty Name="ItemOffers" Relationship="CPModel.FK_ItemOffer_ItemsForSell" FromRole="ItemsForSell" ToRole="ItemOffer" />
+    <NavigationProperty Name="User" Relationship="CPModel.FK_ItemsForSell_Users" FromRole="ItemsForSell" ToRole="User" />
+    <NavigationProperty Name="ItemUserBuyings" Relationship="CPModel.FK_ItemUserBuying_ItemsForSell" FromRole="ItemsForSell" ToRole="ItemUserBuying" />
+    <NavigationProperty Name="ItemUserWatchings" Relationship="CPModel.FK_ItemUserWatching_ItemsForSell" FromRole="ItemsForSell" ToRole="ItemUserWatching" />
+    <NavigationProperty Name="UserFavItems" Relationship="CPModel.FK_UserFavItems_ItemsForSell" FromRole="ItemsForSell" ToRole="UserFavItem" />
+    <NavigationProperty Name="Messages" Relationship="CPModel.FK_Messages_ItemsForSell" FromRole="ItemsForSell" ToRole="Message" />
+  </EntityType>
+  <EntityType Name="ItemUserBuying">
+    <Key>
+      <PropertyRef Name="ItemBuyingId" />
+    </Key>
+    <Property Name="ItemBuyingId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ItemId" Type="Int64" Nullable="false" />
+    <Property Name="UserId" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="ItemsForSell" Relationship="CPModel.FK_ItemUserBuying_ItemsForSell" FromRole="ItemUserBuying" ToRole="ItemsForSell" />
+    <NavigationProperty Name="User" Relationship="CPModel.FK_ItemUserBuying_Users" FromRole="ItemUserBuying" ToRole="User" />
+  </EntityType>
+  <EntityType Name="ItemUserWatching">
+    <Key>
+      <PropertyRef Name="ItemWatchingId" />
+    </Key>
+    <Property Name="ItemWatchingId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ItemId" Type="Int64" Nullable="false" />
+    <Property Name="UserId" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="ItemsForSell" Relationship="CPModel.FK_ItemUserWatching_ItemsForSell" FromRole="ItemUserWatching" ToRole="ItemsForSell" />
+    <NavigationProperty Name="User" Relationship="CPModel.FK_ItemUserWatching_Users" FromRole="ItemUserWatching" ToRole="User" />
+  </EntityType>
+  <EntityType Name="UserDetail">
+    <Key>
+      <PropertyRef Name="UserDetailsId" />
+    </Key>
+    <Property Name="UserDetailsId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DisplayName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PhoneNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LocationLat" Type="Decimal" Precision="9" Scale="6" />
+    <Property Name="LocationLong" Type="Decimal" Precision="9" Scale="6" />
+    <Property Name="LocationName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="PostalCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Rating" Type="Int32" />
+    <Property Name="JoinedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UserType" Type="Int32" Nullable="false" />
+    <Property Name="UserId" Type="Int64" Nullable="false" />
+    <Property Name="ProfileImagePath" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="User" Relationship="CPModel.FK_UserDetails_Users1" FromRole="UserDetail" ToRole="User" />
+    <NavigationProperty Name="UserType1" Relationship="CPModel.FK_UserDetails_UserType" FromRole="UserDetail" ToRole="UserType" />
+  </EntityType>
+  <EntityType Name="UserFavItem">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ItemId" Type="Int64" Nullable="false" />
+    <Property Name="UserId" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="ItemsForSell" Relationship="CPModel.FK_UserFavItems_ItemsForSell" FromRole="UserFavItem" ToRole="ItemsForSell" />
+    <NavigationProperty Name="User" Relationship="CPModel.FK_UserFavItems_Users" FromRole="UserFavItem" ToRole="User" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="ItemOffers" Relationship="CPModel.FK_ItemOffer_Users" FromRole="User" ToRole="ItemOffer" />
+    <NavigationProperty Name="ItemsForSells" Relationship="CPModel.FK_ItemsForSell_Users" FromRole="User" ToRole="ItemsForSell" />
+    <NavigationProperty Name="ItemUserBuyings" Relationship="CPModel.FK_ItemUserBuying_Users" FromRole="User" ToRole="ItemUserBuying" />
+    <NavigationProperty Name="ItemUserWatchings" Relationship="CPModel.FK_ItemUserWatching_Users" FromRole="User" ToRole="ItemUserWatching" />
+    <NavigationProperty Name="UserDetails" Relationship="CPModel.FK_UserDetails_Users1" FromRole="User" ToRole="UserDetail" />
+    <NavigationProperty Name="UserFavItems" Relationship="CPModel.FK_UserFavItems_Users" FromRole="User" ToRole="UserFavItem" />
+    <NavigationProperty Name="Messages" Relationship="CPModel.FK_Messages_UsersFrom" FromRole="User" ToRole="Message" />
+  </EntityType>
+  <EntityType Name="UserType">
+    <Key>
+      <PropertyRef Name="UserTypeId" />
+    </Key>
+    <Property Name="UserTypeId" Type="Int32" Nullable="false" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="UserDetails" Relationship="CPModel.FK_UserDetails_UserType" FromRole="UserType" ToRole="UserDetail" />
+  </EntityType>
+  <Association Name="FK_ItemsForSell_ItemCategory">
+    <End Type="CPModel.ItemCategory" Role="ItemCategory" Multiplicity="1" />
+    <End Type="CPModel.ItemsForSell" Role="ItemsForSell" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ItemCategory">
+        <PropertyRef Name="ItemCatId" />
+      </Principal>
+      <Dependent Role="ItemsForSell">
+        <PropertyRef Name="ItemCatId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ItemsForSell_ItemCondition">
+    <End Type="CPModel.ItemCondition" Role="ItemCondition" Multiplicity="1" />
+    <End Type="CPModel.ItemsForSell" Role="ItemsForSell" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ItemCondition">
+        <PropertyRef Name="ItemConditionId" />
+      </Principal>
+      <Dependent Role="ItemsForSell">
+        <PropertyRef Name="ItemCondition" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ItemImage_ItemsForSell">
+    <End Type="CPModel.ItemsForSell" Role="ItemsForSell" Multiplicity="1" />
+    <End Type="CPModel.ItemImage" Role="ItemImage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ItemsForSell">
+        <PropertyRef Name="ItemId" />
+      </Principal>
+      <Dependent Role="ItemImage">
+        <PropertyRef Name="ItemId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ItemOffer_ItemsForSell">
+    <End Type="CPModel.ItemsForSell" Role="ItemsForSell" Multiplicity="1" />
+    <End Type="CPModel.ItemOffer" Role="ItemOffer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ItemsForSell">
+        <PropertyRef Name="ItemId" />
+      </Principal>
+      <Dependent Role="ItemOffer">
+        <PropertyRef Name="ItemId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ItemOffer_Users">
+    <End Type="CPModel.User" Role="User" Multiplicity="1" />
+    <End Type="CPModel.ItemOffer" Role="ItemOffer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="ItemOffer">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ItemsForSell_Users">
+    <End Type="CPModel.User" Role="User" Multiplicity="1" />
+    <End Type="CPModel.ItemsForSell" Role="ItemsForSell" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="ItemsForSell">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ItemUserBuying_ItemsForSell">
+    <End Type="CPModel.ItemsForSell" Role="ItemsForSell" Multiplicity="1" />
+    <End Type="CPModel.ItemUserBuying" Role="ItemUserBuying" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ItemsForSell">
+        <PropertyRef Name="ItemId" />
+      </Principal>
+      <Dependent Role="ItemUserBuying">
+        <PropertyRef Name="ItemId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ItemUserWatching_ItemsForSell">
+    <End Type="CPModel.ItemsForSell" Role="ItemsForSell" Multiplicity="1" />
+    <End Type="CPModel.ItemUserWatching" Role="ItemUserWatching" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ItemsForSell">
+        <PropertyRef Name="ItemId" />
+      </Principal>
+      <Dependent Role="ItemUserWatching">
+        <PropertyRef Name="ItemId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserFavItems_ItemsForSell">
+    <End Type="CPModel.ItemsForSell" Role="ItemsForSell" Multiplicity="1" />
+    <End Type="CPModel.UserFavItem" Role="UserFavItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ItemsForSell">
+        <PropertyRef Name="ItemId" />
+      </Principal>
+      <Dependent Role="UserFavItem">
+        <PropertyRef Name="ItemId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ItemUserBuying_Users">
+    <End Type="CPModel.User" Role="User" Multiplicity="1" />
+    <End Type="CPModel.ItemUserBuying" Role="ItemUserBuying" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="ItemUserBuying">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ItemUserWatching_Users">
+    <End Type="CPModel.User" Role="User" Multiplicity="1" />
+    <End Type="CPModel.ItemUserWatching" Role="ItemUserWatching" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="ItemUserWatching">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserDetails_Users1">
+    <End Type="CPModel.User" Role="User" Multiplicity="1" />
+    <End Type="CPModel.UserDetail" Role="UserDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="UserDetail">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserDetails_UserType">
+    <End Type="CPModel.UserType" Role="UserType" Multiplicity="1" />
+    <End Type="CPModel.UserDetail" Role="UserDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserType">
+        <PropertyRef Name="UserTypeId" />
+      </Principal>
+      <Dependent Role="UserDetail">
+        <PropertyRef Name="UserType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserFavItems_Users">
+    <End Type="CPModel.User" Role="User" Multiplicity="1" />
+    <End Type="CPModel.UserFavItem" Role="UserFavItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="UserFavItem">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Message">
+    <Key>
+      <PropertyRef Name="MessgeId" />
+    </Key>
+    <Property Name="MessgeId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserIdFrom" Type="Int64" Nullable="false" />
+    <Property Name="UserIdTo" Type="Int64" Nullable="false" />
+    <Property Name="Messge" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SendDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="IsRead" Type="Boolean" Nullable="false" />
+    <Property Name="IsFlagged" Type="Boolean" Nullable="false" />
+    <Property Name="ItemId" Type="Int64" Nullable="false" />
+    <Property Name="ItemOfferId" Type="Int64" />
+    <NavigationProperty Name="ItemOffer" Relationship="CPModel.FK_Messages_ItemOffer" FromRole="Message" ToRole="ItemOffer" />
+    <NavigationProperty Name="ItemsForSell" Relationship="CPModel.FK_Messages_ItemsForSell" FromRole="Message" ToRole="ItemsForSell" />
+    <NavigationProperty Name="User" Relationship="CPModel.FK_Messages_UsersFrom" FromRole="Message" ToRole="User" />
+  </EntityType>
+  <Association Name="FK_Messages_ItemOffer">
+    <End Type="CPModel.ItemOffer" Role="ItemOffer" Multiplicity="0..1" />
+    <End Type="CPModel.Message" Role="Message" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ItemOffer">
+        <PropertyRef Name="ItemOfferId" />
+      </Principal>
+      <Dependent Role="Message">
+        <PropertyRef Name="ItemOfferId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Messages_ItemsForSell">
+    <End Type="CPModel.ItemsForSell" Role="ItemsForSell" Multiplicity="1" />
+    <End Type="CPModel.Message" Role="Message" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ItemsForSell">
+        <PropertyRef Name="ItemId" />
+      </Principal>
+      <Dependent Role="Message">
+        <PropertyRef Name="ItemId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Messages_UsersFrom">
+    <End Type="CPModel.User" Role="User" Multiplicity="1" />
+    <End Type="CPModel.Message" Role="Message" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Message">
+        <PropertyRef Name="UserIdFrom" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

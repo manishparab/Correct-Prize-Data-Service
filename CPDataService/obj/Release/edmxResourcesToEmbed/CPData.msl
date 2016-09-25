@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CPModelStoreContainer" CdmEntityContainer="CPEntities">
+    <FunctionImportMapping FunctionImportName="GetfilteredItem" FunctionName="CPModel.Store.GetfilteredItem">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CPModel.GetfilteredItem_Result">
+          <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="ItemCategories">
+      <EntityTypeMapping TypeName="CPModel.ItemCategory">
+        <MappingFragment StoreEntitySet="ItemCategory">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ItemCatId" ColumnName="ItemCatId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ItemConditions">
+      <EntityTypeMapping TypeName="CPModel.ItemCondition">
+        <MappingFragment StoreEntitySet="ItemCondition">
+          <ScalarProperty Name="ConditionName" ColumnName="ConditionName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ItemConditionId" ColumnName="ItemConditionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ItemImages">
+      <EntityTypeMapping TypeName="CPModel.ItemImage">
+        <MappingFragment StoreEntitySet="ItemImage">
+          <ScalarProperty Name="ImageOrder" ColumnName="ImageOrder" />
+          <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+          <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+          <ScalarProperty Name="ItemImageId" ColumnName="ItemImageId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ItemOffers">
+      <EntityTypeMapping TypeName="CPModel.ItemOffer">
+        <MappingFragment StoreEntitySet="ItemOffer">
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+          <ScalarProperty Name="ItemOfferId" ColumnName="ItemOfferId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ItemsForSells">
+      <EntityTypeMapping TypeName="CPModel.ItemsForSell">
+        <MappingFragment StoreEntitySet="ItemsForSell">
+          <ScalarProperty Name="PostalCodeLocation" ColumnName="PostalCodeLocation" />
+          <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+          <ScalarProperty Name="ItemCondition" ColumnName="ItemCondition" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="IsSold" ColumnName="IsSold" />
+          <ScalarProperty Name="DeliveryType" ColumnName="DeliveryType" />
+          <ScalarProperty Name="LocationLong" ColumnName="LocationLong" />
+          <ScalarProperty Name="LocationLat" ColumnName="LocationLat" />
+          <ScalarProperty Name="DatePosted" ColumnName="DatePosted" />
+          <ScalarProperty Name="IsNegotialble" ColumnName="IsNegotialble" />
+          <ScalarProperty Name="AvailableQuantity" ColumnName="AvailableQuantity" />
+          <ScalarProperty Name="Cost" ColumnName="Cost" />
+          <ScalarProperty Name="ItemCatId" ColumnName="ItemCatId" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ItemUserBuyings">
+      <EntityTypeMapping TypeName="CPModel.ItemUserBuying">
+        <MappingFragment StoreEntitySet="ItemUserBuying">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+          <ScalarProperty Name="ItemBuyingId" ColumnName="ItemBuyingId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ItemUserWatchings">
+      <EntityTypeMapping TypeName="CPModel.ItemUserWatching">
+        <MappingFragment StoreEntitySet="ItemUserWatching">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+          <ScalarProperty Name="ItemWatchingId" ColumnName="ItemWatchingId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserDetails">
+      <EntityTypeMapping TypeName="CPModel.UserDetail">
+        <MappingFragment StoreEntitySet="UserDetails">
+          <ScalarProperty Name="ProfileImagePath" ColumnName="ProfileImagePath" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="UserType" ColumnName="UserType" />
+          <ScalarProperty Name="JoinedDate" ColumnName="JoinedDate" />
+          <ScalarProperty Name="Rating" ColumnName="Rating" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+          <ScalarProperty Name="LocationName" ColumnName="LocationName" />
+          <ScalarProperty Name="LocationLong" ColumnName="LocationLong" />
+          <ScalarProperty Name="LocationLat" ColumnName="LocationLat" />
+          <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
+          <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+          <ScalarProperty Name="UserDetailsId" ColumnName="UserDetailsId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserFavItems">
+      <EntityTypeMapping TypeName="CPModel.UserFavItem">
+        <MappingFragment StoreEntitySet="UserFavItems">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="CPModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserTypes">
+      <EntityTypeMapping TypeName="CPModel.UserType">
+        <MappingFragment StoreEntitySet="UserType">
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="UserTypeId" ColumnName="UserTypeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Messages">
+      <EntityTypeMapping TypeName="CPModel.Message">
+        <MappingFragment StoreEntitySet="Messages">
+          <ScalarProperty Name="ItemOfferId" ColumnName="ItemOfferId" />
+          <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+          <ScalarProperty Name="IsFlagged" ColumnName="IsFlagged" />
+          <ScalarProperty Name="IsRead" ColumnName="IsRead" />
+          <ScalarProperty Name="SendDate" ColumnName="SendDate" />
+          <ScalarProperty Name="Messge" ColumnName="Messge" />
+          <ScalarProperty Name="UserIdTo" ColumnName="UserIdTo" />
+          <ScalarProperty Name="UserIdFrom" ColumnName="UserIdFrom" />
+          <ScalarProperty Name="MessgeId" ColumnName="MessgeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,6 @@
+C:\Users\mparab\Documents\Visual Studio 2013\Projects\CPDataService\CPService\bin\Debug\CPService.dll.config
+C:\Users\mparab\Documents\Visual Studio 2013\Projects\CPDataService\CPService\bin\Debug\CPService.dll
+C:\Users\mparab\Documents\Visual Studio 2013\Projects\CPDataService\CPService\bin\Debug\CPService.pdb
+C:\Users\mparab\Documents\Visual Studio 2013\Projects\CPDataService\CPService\obj\Debug\CPService.csprojResolveAssemblyReference.cache
+C:\Users\mparab\Documents\Visual Studio 2013\Projects\CPDataService\CPService\obj\Debug\CPService.dll
+C:\Users\mparab\Documents\Visual Studio 2013\Projects\CPDataService\CPService\obj\Debug\CPService.pdb

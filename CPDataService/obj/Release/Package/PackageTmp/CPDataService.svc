@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="CPDataService.ServiceCpData" CodeBehind="CPDataService.svc.cs" %>
